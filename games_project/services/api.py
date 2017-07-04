@@ -204,10 +204,10 @@ class CreateUserResource(ModelResource):
         detail_allowed_methods = []
         authorization = Authorization()
         resource_name = 'create_user'
-        fields = ['email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name', 'username']
 
     def obj_create(self, bundle, **kwargs):
-        REQUIRED_FIELDS = ('email', 'first_name', 'last_name', 'password')
+        REQUIRED_FIELDS = ('email', 'first_name', 'last_name', 'password', 'username')
         for field in REQUIRED_FIELDS:
             if field not in bundle.data:
                 raise CustomBadRequest(
